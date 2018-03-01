@@ -1,8 +1,20 @@
 function mergeSort(array){
+
   if (array.length < 2) {
     return array;
   }
 
+// FIGURE OUT WHY I'M GETTING RECURSION SO WRONG
+
+  const splits = split(array), 
+    left = splits[0],
+    right = splits[1];
+
+    return merge(mergeSort(left), mergeSort(right));
+
+  // if (array.length < 2) {
+  //   return array;
+  // }
   // if (array.length === 1) {
   //   return array;
   // } else {
@@ -12,10 +24,8 @@ function mergeSort(array){
 }
 
 
-function merge(arr){
+function merge(arrFirst, arrSecond){
   // return one sorted array
-  let arrFirst = arr[0];
-  let arrSecond = arr[1];
   let sorted = [];
   
     while (arrFirst.length && arrSecond.length) {
